@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>SpringSecurity-Vul</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+                <module>CVE-2018-1259</module>
+                <module>CVE-2018-1260</module>
+                <module>CVE-2018-1261</module>
+                <module>CVE-2018-1270</module>
+                <module>CVE-2019-3799</module>
+                <module>CVE-2020-5398</module>
+                <module>CVE-2020-5412</module>
+                <module>CVE-2020-5421</module>
+                <module>CVE-2021-21234</module>
+                <module>CVE-2021-22053</module>
+                <module>CVE-2022-22947</module>
+                <module>CVE-2022-22963</module>
+                <module>CVE-2022-22965</module>
+                <module>CVE-2022-22978</module>
+                <module>CVE-2022-22979</module>
+                <module>CVE-2022-31692</module>
+		        <module>CVE-2023-20860</module>
+		        <module>CVE-2023-34034</module>
+		        <module>CVE-2023-34035</module>
+		        <module>CVE-2023-34050</module>
+		        <module>CVE-2024-38816</module>
+		        <module>CVE-2024-38819</module>
+		        <module>Spring-Boot-Tomcat-CVE-2025-24813</module>
+		        <module>SpringConfigTest</module>
+    </modules>
+
+     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                  <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target> 
+                    <!--   <source>${java.version}</source>
+                    <target>${java.version}</target> -->
+                </configuration>
+            </plugin>
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-toolchains-plugin</artifactId>
+            <version>3.0.0</version>
+            <!-- <executions>
+                <execution>
+                    <goals>
+                        <goal>toolchain</goal>
+                    </goals>
+                </execution>
+            </executions> -->
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>3.0.0</version>
+            <executions>
+                <execution>
+                    <id>copy-dependencies</id>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>copy-dependencies</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>${project.build.directory}/dependencies-lib</outputDirectory>
+                        <includeScope>runtime</includeScope>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+
+    </plugins>  
+    </build>
+   
+</project>
